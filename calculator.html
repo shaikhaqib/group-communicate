@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body style="background-color: lightpink;">
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .calculator{
+            width: 300px;
+            margin: 12% 40%;
+            padding: 20px;
+            border: 2px solid #FFFAFA;
+            background-color: #F5F5F5;
+            border-radius: 5px;
+            box-shadow: 0 10px 10px grey;
+            opacity: 0.8;
+        }
+
+        .calculator:hover{
+            box-shadow:0 10px 10px purple;
+        }
+
+        input[type="text"]{
+            width: 90%;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"]:focus{
+            background-color: skyblue;
+        }
+
+        .btn {
+            padding: 20px;
+            font-size: 18px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #6495ED;
+        }
+
+        .btn:hover{
+            background-color: #4169E1;
+            color: brown;
+        }
+    </style>
+
+
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        <div>
+            <button class="btn" onclick="cleardisplay()">C</button>
+            <button class="btn" onclick="calculator('7')">7</button>
+            <button class="btn" onclick="calculator('8')">8</button>
+            <button class="btn" onclick="calculator('9')">9</button>
+            <button class="btn" onclick="calculator('+')">+</button>
+        </div>
+
+        <div>
+            <button class="btn" onclick="calculator('4')">4</button>
+            <button class="btn" onclick="calculator('5')">5</button>
+            <button class="btn" onclick="calculator('6')">6</button>
+            <button class="btn" onclick="calculator('-')">-</button>
+        </div>
+
+        <div>
+            <button class="btn" onclick="calculator('1')">1</button>
+            <button class="btn" onclick="calculator('2')">2</button>
+            <button class="btn" onclick="calculator('3')">3</button>
+            <button class="btn" onclick="calculator('*')">*</button>
+        </div>
+
+        <div>
+            <button class="btn" onclick="calculator('0')">0</button>
+            <button class="btn" onclick="calculate()">=</button>
+            <button class="btn" onclick="calculator('.')">.</button>
+            <button class="btn" onclick="calculator('/')">/</button>
+        </div>
+    </div>
+
+    <script>
+        function calculator(value){
+            document.getElementById('display').value += value;
+        }
+
+        function cleardisplay(){
+            document.getElementById('display').value =" ";
+        }
+
+        function calculate(){
+            try{
+                document.getElementById('display').value =eval( document.getElementById('display').value);
+            }
+            catch(error){
+                document.getElementById('display').value = 'error';
+            }
+        }
+    </script>
+</body>
+</html>
